@@ -4,7 +4,7 @@ import { Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
 import { EffectComposer, Bloom, ChromaticAberration } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
-function ParticleField({ count = 1200 }) {
+function ParticleField({ count = 600 }) {
   const ref = useRef();
   const positions = useRef(new Float32Array(count * 3));
   const colors = useRef(new Float32Array(count * 3));
@@ -23,8 +23,8 @@ function ParticleField({ count = 1200 }) {
 
   useFrame((state) => {
     if (!ref.current) return;
-    ref.current.rotation.x = state.clock.elapsedTime * 0.02;
-    ref.current.rotation.y = state.clock.elapsedTime * 0.035;
+    ref.current.rotation.x = state.clock.elapsedTime * 0.015;
+    ref.current.rotation.y = state.clock.elapsedTime * 0.025;
   });
 
   return (
@@ -33,7 +33,7 @@ function ParticleField({ count = 1200 }) {
         <bufferAttribute attach="attributes-position" count={count} array={positions.current} itemSize={3} />
         <bufferAttribute attach="attributes-color" count={count} array={colors.current} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.03} vertexColors transparent opacity={0.35} sizeAttenuation />
+      <pointsMaterial size={0.035} vertexColors transparent opacity={0.3} sizeAttenuation />
     </points>
   );
 }
@@ -97,20 +97,20 @@ function CameraController({ mouseNorm }) {
 }
 
 export default function HeroScene3D({ isMobile, mouseNorm }) {
-  const particleCount = isMobile ? 400 : 1200;
+  const particleCount = isMobile ? 200 : 600;
 
   return (
     <>
       <ambientLight intensity={0.08} />
       <pointLight position={[10, 10, 10]} intensity={0.35} color="#00d4ff" />
       <pointLight position={[-10, -10, -5]} intensity={0.2} color="#00ff88" />
-      <Stars radius={70} depth={40} count={isMobile ? 500 : 1400} factor={2.2} fade speed={0.4} />
+      <Stars radius={70} depth={40} count={isMobile ? 200 : 600} factor={2.2} fade speed={0.4} />
       <ParticleField count={particleCount} />
       {!isMobile && <NeuralCore mouseNorm={mouseNorm} />}
       {!isMobile && <CameraController mouseNorm={mouseNorm} />}
       <EffectComposer>
-        <Bloom intensity={isMobile ? 0.35 : 0.75} luminanceThreshold={0.25} luminanceSmoothing={0.92} radius={0.6} />
-        {!isMobile && <ChromaticAberration offset={[0.0003, 0.0003]} />}
+        <Bloom intensity={isMobile ? 0.3 : 0.5} luminanceThreshold={0.25} luminanceSmoothing={0.92} radius={0.5} />
+        {!isMobile && <ChromaticAberration offset={[0.0002, 0.0002]} />}
       </EffectComposer>
     </>
   );

@@ -25,11 +25,11 @@ export const FLOATING_LABELS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { href: '#', label: 'GitHub', icon: 'github' },
+  { href: personalInfo.github, label: 'GitHub', icon: 'github' },
   { href: personalInfo.linkedin, label: 'LinkedIn', icon: 'linkedin' },
-  { href: '#contact', label: 'Email', icon: 'mail', scroll: '#contact' },
+  { href: `mailto:${personalInfo.email}`, label: 'Email', icon: 'mail' },
   { href: 'https://wa.me/918871383015', label: 'WhatsApp', icon: 'whatsapp' },
-  { href: '/Shubham%20Singh.pdf', label: 'Download Resume', icon: 'resume', download: true },
+  { href: '/Shubham Singh.pdf', label: 'Download Resume', icon: 'resume', download: true },
 ];
 
 export function scrollToSection(selector) {

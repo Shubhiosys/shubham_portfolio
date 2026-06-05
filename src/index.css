@@ -103,6 +103,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  will-change: scroll-position;
 }
 
 body {
@@ -125,7 +126,8 @@ body.is-scrolling .glow-dot,
 body.is-scrolling .portfolio-ambient *,
 body.is-scrolling [class*='__bg-glow'],
 body.is-scrolling .skills__orbit-item,
-body.is-scrolling .floating-whatsapp__icon {
+body.is-scrolling .floating-whatsapp__icon,
+body.is-scrolling canvas {
   animation-play-state: paused !important;
 }
 
@@ -193,6 +195,8 @@ img {
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--radius-lg);
   transition: border-color var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .glass-card:hover {

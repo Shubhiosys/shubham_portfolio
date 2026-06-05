@@ -53,7 +53,7 @@ export default function Navigation({ onNavigate }) {
           if (entry.isIntersecting) setActiveSection(entry.target.id);
         });
       },
-      { rootMargin: '-40% 0px -55% 0px' }
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0.1 }
     );
     document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
     return () => observer.disconnect();

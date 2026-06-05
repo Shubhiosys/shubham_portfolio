@@ -77,8 +77,8 @@ export default function Contact() {
           <div className="contact__info">
             {[
               { icon: 'MAIL', label: 'Email', value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-              { icon: 'IN', label: 'LinkedIn', value: 'LinkedIn', href: personalInfo.linkedin, external: true },
-              { icon: 'GH', label: 'GitHub', value: 'GitHub', href: personalInfo.github, external: true },
+              { icon: 'IN', label: 'LinkedIn', value: personalInfo.linkedinId, href: personalInfo.linkedin, external: true },
+              { icon: 'GH', label: 'GitHub', value: personalInfo.githubId, href: personalInfo.github, external: true },
             ].map((item, i) => (
               <MotionFloat key={item.label} delay={i * 0.15} y={6} duration={4.8}>
                 <div className="contact__info-card glass-card">

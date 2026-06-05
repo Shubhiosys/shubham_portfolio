@@ -57,7 +57,7 @@ export default function HeroDock() {
             data-magnetic
             target={isExternal ? '_blank' : undefined}
             rel={isExternal ? 'noreferrer' : undefined}
-            download={link.download ? 'Shubham Singh.pdf' : undefined}
+            download={link.download ? 'Shubham_Singh_Resume.pdf' : undefined}
             onClick={
               link.scroll
                 ? (e) => {
