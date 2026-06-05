@@ -1,0 +1,33 @@
+.final-cta {
+  position: relative;
+  padding: 60px 0 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 80%);
+}
+
+.final-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 36px;
+}
+
+.final-cta__copy {
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.final-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .final-cta__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
